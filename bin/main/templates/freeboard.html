@@ -65,8 +65,8 @@ footer {
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/">Home</a></li>
 					<li><a href="/freeboard">자유게시판</a></li>
-					<li><a href="#">Projects</a></li>
-					<li><a href="#">Contact</a></li>
+					<!-- <li><a href="#">Projects</a></li>
+					<li><a href="#">Contact</a></li> -->
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li th:if="${session.loginUser==null}"><a href="/joinPage"><span
@@ -113,10 +113,14 @@ footer {
 									<td><span th:text="${board.getWriter()}"></span></td>
 								</tr>
 							</th:block>
-
 						</th:block>
 					</thead>
 				</table>
+				
+				<th:block th:each="pageNumber: ${#numbers.sequence(session.pageMaker.getStartPage(),session.pageMaker.getEndPage())}">
+					<a 	th:href="/freeboard?pageNum" th:text="${pageNumber}"></a>
+				</th:block>
+				
 			</div>
 			<div class="col-sm-2 sidenav">
 				<div class="well">
