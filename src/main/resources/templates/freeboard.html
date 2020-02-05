@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>현수 메인페이지</title>
+<title>게시판</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -48,6 +48,15 @@ footer {
 	}
 }
 </style>
+<script>
+	function page(pageNum){
+		location.href="/freeboard?pageNum="+pageNum;
+	}
+	function getPost(freeid){
+		location.href="/freeBoardInfo?freeId="+freeid;
+	}
+</script>
+
 </head>
 <body>
 
@@ -116,11 +125,13 @@ footer {
 						</th:block>
 					</thead>
 				</table>
-				
-				<th:block th:each="pageNumber: ${#numbers.sequence(session.pageMaker.getStartPage(),session.pageMaker.getEndPage())}">
-					<a 	th:href="/freeboard?pageNum" th:text="${pageNumber}"></a>
-				</th:block>
-				
+
+				<a th:if="${session.pageMaker.isPrev()}" style="text-decoration: none;" th:onclick="|javascript:page('${session.pageMaker.getStartPage()}')|">&laquo;</a>
+		            <th:block th:each="pageNum:${#numbers.sequence(session.pageMaker.getStartPage(),session.pageMaker.getEndPage())}">
+		                &nbsp;<a th:text="${pageNum}" th:onclick="|javascript:page('${pageNum}')|"></a>&nbsp;
+		            </th:block>
+            	<a th:if="${session.pageMaker.isNext()}" style="text-decoration: none;" th:onclick="|javascript:page('${session.pageMaker.getEndPage()}')|">&raquo;</a>
+
 			</div>
 			<div class="col-sm-2 sidenav">
 				<div class="well">

@@ -34,12 +34,17 @@ public class FreeboardController {
 	
 	@PostMapping("/freeboardWriteRequest")
     public String freeboardWriteRequest(@RequestParam Map<String ,String > paramMap){
-        String title = paramMap.get("content");
-        String content = paramMap.get("title");
+        String title = paramMap.get("title");
+        String content = paramMap.get("content");
         String writer = paramMap.get("writer");
 
         freeboardWriteService.write(title, content, writer);
 
         return "redirect:/freeboard";
     }
+	
+	@GetMapping("/freeBoardInfo")
+	public String getPost(@RequestParam(value="freeid") String freeId) {
+		return "freeBoardInfo";
+	}
 }
