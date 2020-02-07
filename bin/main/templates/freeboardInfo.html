@@ -11,6 +11,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="js/freeboardInfo.js"></script>
 <style>
 /* Remove the navbar's default margin-bottom and rounded borders */
 .navbar {
@@ -107,6 +108,17 @@ footer {
 				<br><br>
 				<textarea th:text="${session.freeboard.getContent()}" readonly="readonly"></textarea>
 				<br><br>
+				<form id="freeboardComment0">
+	                <input type="text" name="content"><br>
+	                <input type="hidden" value="0" name="comment_origin_id">
+	                <input type="hidden" value="0" name="comment_level">
+	                <input type="hidden" th:value="${session.loginUser.getUserName()}" name="writer">
+	                <input type="hidden" th:value="${session.freeboard.getFreeId()}" name="freeId">
+	                <button id="defaultCommentWrite">댓글 작성</button>
+	            </form>
+	            <div id="commentList">
+	
+	            </div>
 			</div>
 			<div class="col-sm-2 sidenav">
 				<div class="well">

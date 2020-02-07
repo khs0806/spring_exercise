@@ -1,6 +1,6 @@
 package com.example.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.*;
 
@@ -17,7 +17,7 @@ public class FreeboardComment {
 	private String content;
 	
 	@Column(name="writeDate")
-	private Date writeDate;
+	private LocalDateTime writeDate;
 	
 	@Column(name="writer")
 	private String writer;
@@ -50,10 +50,10 @@ public class FreeboardComment {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getWriteDate() {
+	public LocalDateTime getWriteDate() {
 		return writeDate;
 	}
-	public void setWriteDate(Date writeDate) {
+	public void setWriteDate(LocalDateTime writeDate) {
 		this.writeDate = writeDate;
 	}
 	public String getWriter() {

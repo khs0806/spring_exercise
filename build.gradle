@@ -20,7 +20,9 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
-	
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-hateoas', version: '2.1.2.RELEASE'
+	runtimeOnly 'com.h2database:h2'
+	compileOnly 'org.projectlombok:lombok'
 }
 
 test {

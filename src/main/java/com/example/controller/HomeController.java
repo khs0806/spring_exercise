@@ -16,6 +16,7 @@ public class HomeController {
 	public String index() {
 		return "index";
 	}
+	
 	@RequestMapping(value="/joinPage")
 	public String joinPage() {
 		return "join";

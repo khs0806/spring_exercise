@@ -28,10 +28,10 @@ public class Freeboard {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	public Long getFreeid() {
+	public Long getFreeId() {
 		return freeId;
 	}
-	public void setFreeid(Long freeid) {
+	public void setFreeId(Long freeid) {
 		this.freeId = freeid;
 	}
 	public String getContent() {

@@ -115,9 +115,9 @@ footer {
 						<th:block th:if="${session.boardList!=null}">
 							<th:block th:each="board:${session.boardList}">
 								<tr>
-									<td><span th:text="${board.getFreeid()}"></span></td>
+									<td><span th:text="${board.getFreeId()}"></span></td>
 									<td><a
-										th:onclick="|javascript:getPost('${board.getFreeid()}')|"
+										th:onclick="|javascript:getPost('${board.getFreeId()}')|"
 										th:text="${board.getTitle()}"></a></td>
 									<td><span th:text="${board.getWriter()}"></span></td>
 								</tr>
